@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  @font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1488614612867'); /* IE9*/
+    src: url('iconfont.eot?t=1488614612867#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff?t=1488614612867') format('woff'), /* chrome, firefox */
+    url('iconfont.ttf?t=1488614612867') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1488614612867#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  .iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-music {
+  text-align: center;
+  line-height: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  animation: rotateDiv 3s ease-in-out infinite;
+}
+@keyframes rotateDiv {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.icon-music:before {
+  content: "\34a3";
+  font-size: 30px;
+  color: white;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+ }
+ .icon-music:after {
+   border-radius: 50%;
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0,0,0,.5);
+ }
+  </style>
+</head>
+<body>
+  <i id="i" class="iconfont icon-music" onclick="controlMusic()"></i>
+  <audio src="http://ws.stream.qqmusic.qq.com/102054055.m4a?fromtag=46" id="music" autoplay></audio>
+  <script>
+    function controlMusic() {
+      var audio = document.getElementById('music');
+      var i = document.getElementById('i');
+  //    if(audio !== null) {
+        if(audio.paused) {
+          audio.play();
+          i.style.webkitAnimationPlayState = "running";
+        }else{
+          audio.pause();
+          i.style.webkitAnimationPlayState = "paused";
+        }
+  //    }
+    }
+  </script>
+</body>
+</html>
